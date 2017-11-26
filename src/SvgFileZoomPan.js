@@ -6,6 +6,7 @@ export default class SvgFileZoomPan extends React.Component {
   componentDidMount() {
     D3SvgFileZoomPan.create({
       svgPath: this.props.svgPath,
+      svg: this.props.svg,
       duration: this.props.duration,
       resize: this.props.resize,
       el: this.getDOMNode(),
@@ -15,6 +16,7 @@ export default class SvgFileZoomPan extends React.Component {
   componentWillReceiveProps(nextProps) {
     D3SvgFileZoomPan.update({
       svgPath: nextProps.svgPath,
+      svg: nextProps.svg,
       duration: this.props.duration,
       resize: nextProps.resize,
       el: this.getDOMNode(),
@@ -38,6 +40,7 @@ export default class SvgFileZoomPan extends React.Component {
 
 SvgFileZoomPan.propTypes = {
   svgPath: React.PropTypes.string,
+  svg: React.PropTypes.string,
   duration: React.PropTypes.number,
   resize: React.PropTypes.bool,
 };
