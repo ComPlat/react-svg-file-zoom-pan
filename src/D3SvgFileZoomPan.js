@@ -43,15 +43,19 @@ class D3SvgFileEngine {
   }
 
   processSvgFile(props, svgFrame) {
-    d3.xml(props.svgPath, (error, svgFile) => {
-      if (error) {
-        console.warn(error);
-        return;
-      }
-      if (svgFile) {
-        this.attachSvgFile(svgFile, svgFrame, props.resize);
-      }
-    });
+    if (props.svg) {
+      svgFrame.node().appendChild(props.svg);
+    } else {
+      d3.xml(props.svgPath, (error, svgFile) => {
+        if (error) {
+          console.warn(error);
+          return;
+        }
+        if (svgFile) {
+          this.attachSvgFile(svgFile, svgFrame, props.resize);
+        }
+      });
+    }
   }
 
   attachSvgFile(svgFile, svgFrame, resize) {
