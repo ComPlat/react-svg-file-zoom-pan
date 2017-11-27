@@ -44,7 +44,8 @@ class D3SvgFileEngine {
 
   processSvgFile(props, svgFrame) {
     if (props.svg) {
-      svgFrame.node().appendChild(props.svg);
+      const doc = new DOMParser().parseFromString(props.svg, 'image/svg+xml');
+      svgFrame.node().appendChild(doc.documentElement);
     } else {
       d3.xml(props.svgPath, (error, svgFile) => {
         if (error) {
