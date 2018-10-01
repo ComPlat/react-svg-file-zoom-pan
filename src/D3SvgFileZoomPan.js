@@ -21,12 +21,12 @@ class D3SvgFileEngine {
 
   buildZoomPanFrame(props) {
     const zoomed = () => {
-      svg.attr('transform',
+      svg.attr('transform', // eslint-disable-line no-use-before-define
                 `translate(${d3.event.translate}) scale(${d3.event.scale})`);
     };
     const zoom = d3.behavior.zoom().on('zoom', zoomed);
     const resetZoom = () => {
-      svg.transition()
+      svg.transition() // eslint-disable-line no-use-before-define
           .duration(props.duration)
           .attr('transform', 'translate(0,0) scale(1)');
       zoom.scale(1).translate([0, 0]);
@@ -49,7 +49,7 @@ class D3SvgFileEngine {
     } else {
       d3.xml(props.svgPath, (error, svgFile) => {
         if (error) {
-          console.warn(error);
+          console.warn(error); // eslint-disable-line no-console
           return;
         }
         if (svgFile) {
