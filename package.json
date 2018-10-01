@@ -41,8 +41,9 @@
     "enzyme": "^2.2.0",
     "jsdom": "^8.3.1",
     "eslint-plugin-jsx-a11y": "^0.6.2",
-    "@kadira/storybook": "^2.5.2",
-    "git-url-parse": "^6.0.1"
+    "git-url-parse": "^6.0.1",
+    "@storybook/react": "^3.4.11",
+    "@storybook/addons": "^3.4.11"
   },
   "peerDependencies": {
     "react": "^16.5.2"
