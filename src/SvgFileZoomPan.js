@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import { D3SvgFileZoomPan } from './D3SvgFileZoomPan';
 
 export default class SvgFileZoomPan extends React.Component {
@@ -39,8 +40,8 @@ export default class SvgFileZoomPan extends React.Component {
 }
 
 SvgFileZoomPan.propTypes = {
-  svgPath: React.PropTypes.string,
-  svg: React.PropTypes.string,
-  duration: React.PropTypes.number,
-  resize: React.PropTypes.bool,
+  svgPath: PropTypes.string,
+  svg: PropTypes.string,
+  duration: PropTypes.number,
+  resize: PropTypes.bool,
 };

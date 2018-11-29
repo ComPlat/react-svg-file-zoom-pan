@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf } from '@kadira/storybook';
+import { storiesOf } from '@storybook/react';
 import SvgFileZoomPan from '../SvgFileZoomPan';
 import '../stylesheets/style.css';
 
@@ -8,7 +8,7 @@ storiesOf('SvgFileZoomPan', module)
     <div style={{ height: 300, border: '1px solid green' }}>
       <SvgFileZoomPan svgPath="https://upload.wikimedia.org/wikipedia/commons/e/e4/World_Map_Blank_-_with_blue_sea.svg"
         duration={300}
-        resize={true} />
+        resize />
     </div>
   ))
   .add('multiple view', () => (
@@ -21,7 +21,7 @@ storiesOf('SvgFileZoomPan', module)
       <div style={{ height: 300, border: '1px solid green' }}>
         <SvgFileZoomPan svgPath="https://upload.wikimedia.org/wikipedia/commons/e/e4/World_Map_Blank_-_with_blue_sea.svg"
           duration={300}
-          resize={true} />
+          resize />
       </div>
     </div>
   ));

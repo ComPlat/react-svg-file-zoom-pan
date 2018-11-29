@@ -23,12 +23,14 @@ npm i react-svg-file-zoom-pan --save
 
 ```javascript
 import SvgFileZoomPan from 'react-svg-file-zoom-pan';
-...
+
 const my_path = "https://upload.wikimedia.org/wikipedia/commons/e/e4/World_Map_Blank_-_with_blue_sea.svg";
-...
-<SvgFileZoomPan svgPath={my_path}
-                duration={300}
-                resize={true} />
+
+<SvgFileZoomPan
+  svgPath={my_path}
+  duration={300}
+  resize
+/>
 ```
 
 [Demo](https://ComPlat.github.io/react-svg-file-zoom-pan)
