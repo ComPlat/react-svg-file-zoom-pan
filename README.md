@@ -1,8 +1,8 @@
-# React Svg File Zoom-Pan Component
+# React Svg File Zoom Pan
 
-You can use this npm package in your React.js for:
+You can use this package in your react.js for:
 
-1. display an external SVG file as a React.js component.
+1. display an external SVG file / SVG string as a react.js component.
 
 2. zoom & pan the SVG using D3.js.
 
@@ -10,30 +10,30 @@ You can use this npm package in your React.js for:
 ### 1. INSTALL
 
 ```
-npm i react-svg-file-zoom-pan --save
+$ yarn add react-svg-file-zoom-pan
 ```
 
 ### 2. GETTING STARTED
 
+##### run storybook to see demo
+
+```
+$ yarn install
+$ yarn storybook
+```
+
+##### usage
+
 ```svgPath```: an URL, which is the link of your external SVG file.
+
+```svg```: a string, which is the SVG content
+
+Please input via ```svgPath``` or ```svg```.
 
 ```duration```: a number, which is the time of the transition to the original SVG size when double-clicking.
 
 ```resize```: a bool, which set wheter you want to set SVG attributes to ```width: '100%', height: '100%'```
 
-```javascript
-import SvgFileZoomPan from 'react-svg-file-zoom-pan';
-
-const my_path = "https://upload.wikimedia.org/wikipedia/commons/e/e4/World_Map_Blank_-_with_blue_sea.svg";
-
-<SvgFileZoomPan
-  svgPath={my_path}
-  duration={300}
-  resize
-/>
-```
-
-[Demo](https://ComPlat.github.io/react-svg-file-zoom-pan)
 
 ### 3. LICENSE
 
