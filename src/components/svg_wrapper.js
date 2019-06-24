@@ -29,10 +29,11 @@ class SvgWrapper {
 
   draw(props) {
     const { svg, svgPath } = props;
-    if (svg) {
+    if (svg && svg.includes('<svg')) {
       this.renderStr(props, svg)
     } else {
-      d3.xml(svgPath)
+      const path = svg || svgPath;
+      d3.xml(path)
         .then(file => this.renderFile(props, file))
         .catch(err => console.log(err)); // eslint-disable-line
     }
