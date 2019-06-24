@@ -53,3 +53,23 @@ storiesOf('Load SVG files', module)
       </div>
     </div>
   ));
+
+storiesOf('General loading SVG', module)
+  .add('svg string', () => (
+    <div style={style}>
+      <SvgFileZoomPan
+        svg={svg}
+        duration={300}
+        resize
+      />
+    </div>
+  ))
+  .add('svg file', () => (
+    <div style={style}>
+      <SvgFileZoomPan
+        svg={path}
+        duration={300}
+        resize
+      />
+    </div>
+  ))
