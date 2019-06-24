@@ -1,27 +1,55 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import SvgFileZoomPan from '../SvgFileZoomPan';
-import '../stylesheets/style.css';
 
-storiesOf('SvgFileZoomPan', module)
-  .add('single view', () => (
-    <div style={{ height: 300, border: '1px solid green' }}>
-      <SvgFileZoomPan svgPath="https://upload.wikimedia.org/wikipedia/commons/e/e4/World_Map_Blank_-_with_blue_sea.svg"
+import { storiesOf } from '@storybook/react';
+
+import SvgFileZoomPan from '../App';
+import './style.css';
+
+const style = { height: 300, border: '1px solid green' };
+const path = 'https://upload.wikimedia.org/' +
+              'wikipedia/commons/e/e4/' +
+              'World_Map_Blank_-_with_blue_sea.svg';
+const svg = '<svg width="100" height="100">' +
+            '<circle cx="50" cy="50" r="40" fill="yellow" />' +
+            '</svg>';
+
+storiesOf('Load SVG string', module)
+  .add('single', () => (
+    <div style={style}>
+      <SvgFileZoomPan
+        svg={svg}
         duration={300}
-        resize />
+        resize
+      />
     </div>
   ))
-  .add('multiple view', () => (
+
+
+storiesOf('Load SVG files', module)
+  .add('single', () => (
+    <div style={style}>
+      <SvgFileZoomPan
+        svgPath={path}
+        duration={300}
+        resize
+      />
+    </div>
+  ))
+  .add('multiple', () => (
     <div>
-      <div style={{ height: 300, border: '1px solid green' }}>
-        <SvgFileZoomPan svgPath="https://upload.wikimedia.org/wikipedia/commons/e/e4/World_Map_Blank_-_with_blue_sea.svg"
+      <div style={style}>
+        <SvgFileZoomPan
+          svgPath={path}
           duration={300}
-          resize />
+          resize
+        />
       </div>
-      <div style={{ height: 300, border: '1px solid green' }}>
-        <SvgFileZoomPan svgPath="https://upload.wikimedia.org/wikipedia/commons/e/e4/World_Map_Blank_-_with_blue_sea.svg"
+      <div style={style}>
+        <SvgFileZoomPan
+          svgPath={path}
           duration={300}
-          resize />
+          resize
+        />
       </div>
     </div>
   ));
