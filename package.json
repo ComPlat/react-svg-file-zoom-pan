@@ -1,7 +1,17 @@
 {
   "name": "react-svg-file-zoom-pan",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.1",
+  "private": false,
+  "description": "React Svg File Zoom Pan Component",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ComPlat/react-svg-file-zoom-pan"
+  },
+  "main": "dist/App.js",
+  "module": "dist/App.js",
+  "babel": {
+    "presets": [ "@babel/react" ]
+  },
   "dependencies": {
     "d3": "^5.9.2",
     "react": "^16.8.6",
@@ -14,7 +24,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "compile": "NODE_ENV=production && rm -rf dist && mkdir dist && npx babel --ignore tests,stories,index.js,serviceWorker.js ./src --out-dir dist --copy-files"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -32,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.4.4",
     "@storybook/addon-actions": "^5.1.9",
     "@storybook/addon-links": "^5.1.9",
     "@storybook/addons": "^5.1.9",
