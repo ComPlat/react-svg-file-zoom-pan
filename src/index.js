@@ -1,11 +1,65 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import PropTypes from 'prop-types';
+import SvgWrapper from './components/svg_wrapper';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class SvgFileZoomPan extends React.Component {
+  constructor(props) {
+    super(props);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+    this.main = new SvgWrapper();
+    this.d3Ref = React.createRef();
+  }
+
+  componentDidMount() {
+    const {
+      svgPath, svg, duration, resize,
+    } = this.props;
+
+    const el = this.d3Ref.current;
+    this.chart = this.main.create({
+      svgPath,
+      svg,
+      duration,
+      resize,
+      el,
+    });
+  }
+
+  componentDidUpdate(prevProps) {
+    const {
+      svgPath, svg, duration, resize,
+    } = this.props;
+
+    const el = this.d3Ref.current;
+    this.main.update({
+      svgPath,
+      svg,
+      duration,
+      resize,
+      el,
+    });
+  }
+
+  componentWillUnmount() {
+    const el = this.d3Ref.current;
+    this.main.destroy(el);
+  }
+
+  render() {
+    return (
+      <div
+        className="svg-file-zoom-pan"
+        ref={this.d3Ref}
+      />
+    );
+  }
+}
+
+SvgFileZoomPan.propTypes = {
+  svgPath: PropTypes.string,
+  svg: PropTypes.string,
+  duration: PropTypes.number,
+  resize: PropTypes.bool,
+};
+
+export default SvgFileZoomPan;
