@@ -1,52 +1,47 @@
 {
   "name": "react-svg-file-zoom-pan",
-  "version": "1.0.2",
-  "private": false,
+  "version": "1.0.3",
   "description": "React Svg File Zoom Pan Component",
   "repository": {
     "type": "git",
     "url": "https://github.com/ComPlat/react-svg-file-zoom-pan"
   },
-  "main": "dist/App.js",
-  "module": "dist/App.js",
-  "babel": {
-    "presets": [ "@babel/react" ]
-  },
+  "license": "MIT",
   "dependencies": {
-    "d3": "^5.9.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "d3": "^5.5.0",
+    "regenerator-transform": "^0.13.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "compile": "rm -rf dist && NODE_ENV=production babel --ignore tests,stories ./src --out-dir ./dist",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public",
-    "compile": "NODE_ENV=production && rm -rf dist && mkdir dist && npx babel --ignore tests,stories,index.js,serviceWorker.js ./src --out-dir dist --copy-files"
+    "storybook": "start-storybook -p 3001 -c .storybook",
+    "buildbook": "build-storybook -c .storybook -o .out"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "peerDependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@storybook/addon-actions": "^5.1.9",
-    "@storybook/addon-links": "^5.1.9",
-    "@storybook/addons": "^5.1.9",
-    "@storybook/react": "^5.1.9"
-  }
+    "@storybook/react": "^3.4.10",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-scripts": "^2.1.1",
+    "react-select": "^2.0.0"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ]
 }
