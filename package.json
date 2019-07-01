@@ -16,7 +16,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "compile": "rm -rf dist && NODE_ENV=production babel --ignore tests,stories ./src --out-dir ./dist",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom --testPathIgnorePatterns=src/__tests__/helper/*",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 3001 -c .storybook",
     "buildbook": "build-storybook -c .storybook -o .out"
@@ -29,6 +29,8 @@
     "@storybook/react": "^3.4.10",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
