@@ -19,3 +19,8 @@ beforeEach(() => {
 it('shows .svg-file-zoom-pan', () => {
   expect(wrapped.find('.svg-file-zoom-pan').length).toEqual(1);
 });
+
+it('shows circle', () => {
+  // TBD
+  expect(0).toEqual(1);
+});
