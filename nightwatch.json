@@ -1,0 +1,17 @@
+{
+  "src_folders" : ["./src/__tests__/e2e"],
+  "webdriver" : {
+    "start_process": true,
+    "server_path": "node_modules/.bin/chromedriver",
+    "port": 9515
+  },
+  "test_settings" : {
+    "default" : {
+      "launchUrl" : "http://localhost:3000",
+      "filter" : "**/*.test.js",
+      "desiredCapabilities": {
+        "browserName": "chrome"
+      }
+    }
+  }
+}

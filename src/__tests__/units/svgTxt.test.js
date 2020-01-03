@@ -1,15 +1,15 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 
-import SvgFileZoomPan from '../index';
-import { path, svg } from './helper/params';
+import SvgFileZoomPan from '../../app';
+import { svgContent } from '../helper/params';
 
 let wrapped;
 
 beforeEach(() => {
-  wrapped = shallow(
+  wrapped = mount(
     <SvgFileZoomPan
-      svg={svg}
+      svg={svgContent}
       duration={300}
       resize
     />
@@ -21,6 +21,5 @@ it('shows .svg-file-zoom-pan', () => {
 });
 
 it('shows circle', () => {
-  // TBD
-  expect(0).toEqual(1);
+  expect(wrapped.html()).toContain(svgContent);
 });
