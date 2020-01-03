@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 
-import SvgFileZoomPan from '../src/index';
+import SvgFileZoomPan from '../src/app';
 import './style.css';
 
 const style = { height: 300, border: '1px solid green' };

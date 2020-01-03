@@ -1,65 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import SvgWrapper from './components/svg_wrapper';
+import ReactDOM from 'react-dom';
 
-class SvgFileZoomPan extends React.Component {
-  constructor(props) {
-    super(props);
+import SvgFileZoomPan from './app';
 
-    this.main = new SvgWrapper();
-    this.d3Ref = React.createRef();
-  }
+const style = { height: 300, border: '1px solid green' };
 
-  componentDidMount() {
-    const {
-      svgPath, svg, duration, resize,
-    } = this.props;
+const svg = '<svg width="100" height="100">' +
+            '<circle cx="50" cy="50" r="40" fill="yellow" />' +
+            '</svg>';
 
-    const el = this.d3Ref.current;
-    this.chart = this.main.create({
-      svgPath,
-      svg,
-      duration,
-      resize,
-      el,
-    });
-  }
-
-  componentDidUpdate(prevProps) {
-    const {
-      svgPath, svg, duration, resize,
-    } = this.props;
-
-    const el = this.d3Ref.current;
-    this.main.update({
-      svgPath,
-      svg,
-      duration,
-      resize,
-      el,
-    });
-  }
-
-  componentWillUnmount() {
-    const el = this.d3Ref.current;
-    this.main.destroy(el);
-  }
-
-  render() {
-    return (
-      <div
-        className="svg-file-zoom-pan"
-        ref={this.d3Ref}
-      />
-    );
-  }
-}
-
-SvgFileZoomPan.propTypes = {
-  svgPath: PropTypes.string,
-  svg: PropTypes.string,
-  duration: PropTypes.number,
-  resize: PropTypes.bool,
-};
-
-export default SvgFileZoomPan;
+// - - - DOM - - -
+ReactDOM.render(
+  <div style={style}>
+    <SvgFileZoomPan
+      svg={svg}
+      duration={300}
+      resize
+    />
+  </div>,
+  document.getElementById('root'),
+);
