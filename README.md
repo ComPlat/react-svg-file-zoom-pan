@@ -19,7 +19,7 @@ $ yarn add react-svg-file-zoom-pan
 
 ```
 $ yarn install
-$ yarn storybook
+$ yarn start
 ```
 
 ##### usage
@@ -35,11 +35,26 @@ Please input via ```svgPath``` or ```svg```.
 ```resize```: a bool, which set wheter you want to set SVG attributes to ```width: '100%', height: '100%'```
 
 
-### 3. LICENSE
+### 3. TEST
+
+unit tests
+
+```
+$ yarn test
+```
+
+end-to-end tests
+
+```
+$ yarn start
+$ yarn e2e
+```
+
+### 4. LICENSE
 
 [LICENSE](./LICENSE)
 
-### 4. REFERENCE
+### 5. REFERENCE
 
 http://bl.ocks.org/sgruhier/1d692762f8328a2c9957
 

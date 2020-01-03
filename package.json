@@ -1,6 +1,6 @@
 {
   "name": "react-svg-file-zoom-pan",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "React Svg File Zoom Pan Component",
   "repository": {
     "type": "git",
@@ -16,7 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "compile": "rm -rf dist && NODE_ENV=production babel --ignore tests,stories ./src --out-dir ./dist",
-    "test": "react-scripts test --env=jsdom --testPathIgnorePatterns=src/__tests__/helper/*",
+    "test": "react-scripts test --env=jsdom --testPathIgnorePatterns=src/__tests__/helper/* src/__tests__/e2e/*",
+    "e2e": "nightwatch",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 3001 -c .storybook",
     "buildbook": "build-storybook -c .storybook -o .out"
@@ -29,21 +30,29 @@
     "@storybook/react": "^3.4.10",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "chromedriver": "^79.0.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
+    "nightwatch": "^1.1.13",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-scripts": "^2.1.1",
     "react-select": "^2.0.0"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "dist/app.js",
+  "module": "dist/app.js",
   "files": [
     "dist",
     "README.md"
+  ],
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
   ]
 }
