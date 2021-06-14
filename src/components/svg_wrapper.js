@@ -50,7 +50,16 @@ class SvgWrapper {
   }
 
   renderStr(props, str) {
-    this.svg.html(str);
+    const dom = new DOMParser().parseFromString(str, 'image/svg+xml');
+      var resize = props.resize;
+
+      var node = dom.documentElement.getElementsByTagName('svg')[0];
+      if (resize) {
+        node.setAttribute('width', '100%');
+        node.setAttribute('height', '100%');
+      }
+
+      this.svg.node().appendChild(node);
   }
 }
 
