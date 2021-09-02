@@ -14,7 +14,6 @@ class SvgWrapper {
 
   create(input) {
     this.setSvg(input);
-    this.draw(input);
   }
 
   update(input) {
@@ -42,11 +41,15 @@ class SvgWrapper {
   renderFile(props, file) {
     const { resize } = props;
     const node = file.getElementsByTagName('svg')[0];
-    if (resize) {
-      node.setAttribute('width', '100%');
-      node.setAttribute('height', '100%');
+    if(node) {
+      if (resize) {
+        node.setAttribute('width', '100%');
+        node.setAttribute('height', '100%');
+      }
+
+      this.svg.node().innerHTML = '';
+      this.svg.node().appendChild(node);
     }
-    this.svg.node().appendChild(node);
   }
 
   renderStr(props, str) {
@@ -54,12 +57,15 @@ class SvgWrapper {
       var resize = props.resize;
 
       var node = dom.documentElement.getElementsByTagName('svg')[0];
-      if (resize) {
-        node.setAttribute('width', '100%');
-        node.setAttribute('height', '100%');
-      }
+      if(node) {
+        if (resize) {
+          node.setAttribute('width', '100%');
+          node.setAttribute('height', '100%');
+        }
 
-      this.svg.node().appendChild(node);
+        this.svg.node().innerHTML = '';
+        this.svg.node().appendChild(node);
+      }
   }
 }
 
