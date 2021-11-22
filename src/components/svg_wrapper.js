@@ -56,7 +56,7 @@ class SvgWrapper {
     const dom = new DOMParser().parseFromString(str, 'image/svg+xml');
       var resize = props.resize;
 
-      var node = dom.documentElement.getElementsByTagName('svg')[0];
+      var node = dom.getElementsByTagName('svg')[0];
       if(node) {
         if (resize) {
           node.setAttribute('width', '100%');
