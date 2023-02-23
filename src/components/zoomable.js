@@ -1,7 +1,9 @@
 import * as d3 from 'd3';
 
 const zoomable = ({ el, duration }) => {
-  const zoomed = () => svg.attr('transform', d3.event.transform);
+  const zoomed = (event, d) => {
+    svg.attr('transform', event.transform);
+  };
   const zoom = d3.zoom().on('zoom', zoomed);
 
   const resetZoom = () => {
