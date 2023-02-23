@@ -1,6 +1,6 @@
 {
   "name": "@complat/react-svg-file-zoom-pan",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "React Svg File Zoom Pan Component",
   "repository": {
     "type": "git",
@@ -9,7 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "d3": "^5.5.0",
+    "d3": "^6.0.0",
     "regenerator-transform": "^0.13.3"
   },
   "scripts": {
