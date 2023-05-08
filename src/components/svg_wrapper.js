@@ -1,4 +1,4 @@
-// import React from 'react';
+/* eslint-disable no-unused-vars, no-use-before-define */
 import * as d3 from 'd3';
 
 import zoomable from './zoomable';
@@ -29,7 +29,7 @@ class SvgWrapper {
   draw(props) {
     const { svg, svgPath } = props;
     if (svg && svg.includes('<svg')) {
-      this.renderStr(props, svg)
+      this.renderStr(props, svg);
     } else {
       const path = svg || svgPath;
       d3.xml(path)
@@ -41,7 +41,7 @@ class SvgWrapper {
   renderFile(props, file) {
     const { resize } = props;
     const node = file.getElementsByTagName('svg')[0];
-    if(node) {
+    if (node) {
       if (resize) {
         node.setAttribute('width', '100%');
         node.setAttribute('height', '100%');
@@ -54,18 +54,18 @@ class SvgWrapper {
 
   renderStr(props, str) {
     const dom = new DOMParser().parseFromString(str, 'image/svg+xml');
-      var resize = props.resize;
+    const { resize } = props;
 
-      var node = dom.getElementsByTagName('svg')[0];
-      if(node) {
-        if (resize) {
-          node.setAttribute('width', '100%');
-          node.setAttribute('height', '100%');
-        }
-
-        this.svg.node().innerHTML = '';
-        this.svg.node().appendChild(node);
+    const node = dom.getElementsByTagName('svg')[0];
+    if (node) {
+      if (resize) {
+        node.setAttribute('width', '100%');
+        node.setAttribute('height', '100%');
       }
+
+      this.svg.node().innerHTML = '';
+      this.svg.node().appendChild(node);
+    }
   }
 }
 
