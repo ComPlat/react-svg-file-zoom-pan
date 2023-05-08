@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars, import/no-extraneous-dependencies, react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 import SvgWrapper from './components/svg_wrapper';
