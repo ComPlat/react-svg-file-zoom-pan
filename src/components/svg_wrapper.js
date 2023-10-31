@@ -6,6 +6,7 @@ import zoomable from './zoomable';
 class SvgWrapper {
   constructor(props) {
     this.setSvg = this.setSvg.bind(this);
+    this.standardlizeSvgStr = this.standardlizeSvgStr.bind(this);
   }
 
   setSvg(props) {
@@ -47,13 +48,23 @@ class SvgWrapper {
         node.setAttribute('height', '100%');
       }
 
-      this.svg.node().innerHTML = '';
-      this.svg.node().appendChild(node);
+      // this.svg.node().innerHTML = '';
+      // this.svg.node().appendChild(node);
+      this.renderStr(props, node.outerHTML);
     }
   }
 
+  standardlizeSvgStr(str) {
+    let svgStr = str;
+    if (svgStr) {
+      svgStr = svgStr.replaceAll('gradient', 'Gradient');
+    }
+    return svgStr;
+  }
+
   renderStr(props, str) {
-    const dom = new DOMParser().parseFromString(str, 'image/svg+xml');
+    const svgStr = this.standardlizeSvgStr(str);
+    const dom = new DOMParser().parseFromString(svgStr, 'image/svg+xml');
     const { resize } = props;
 
     const node = dom.getElementsByTagName('svg')[0];
