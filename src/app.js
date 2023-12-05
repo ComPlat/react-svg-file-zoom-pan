@@ -17,7 +17,7 @@ class SvgFileZoomPan extends React.Component {
     } = this.props;
 
     const el = this.d3Ref.current;
-    this.chart = this.main.create({
+    this.chart = this.main.update({
       svgPath,
       svg,
       duration,

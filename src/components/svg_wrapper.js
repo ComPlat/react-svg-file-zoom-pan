@@ -13,10 +13,6 @@ class SvgWrapper {
     this.svg = zoomable(props);
   }
 
-  create(input) {
-    this.setSvg(input);
-  }
-
   update(input) {
     this.destroy(input.el);
     this.setSvg(input);
