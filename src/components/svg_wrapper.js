@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars, no-use-before-define */
-import * as d3 from 'd3';
 
 import zoomable from './zoomable';
+
+const d3 = require('d3');
 
 class SvgWrapper {
   constructor(props) {
